@@ -6,6 +6,8 @@ use sysbar\User;
 use sysbar\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Caffeinated\Shinobi\Models\Role;
+use DB;
 
 class RegisterController extends Controller
 {
@@ -45,12 +47,16 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+        protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'name' => 'required|string|max:100',
+            'email' => 'required|string|email|max:100|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'apellido' => 'required|string|max:100',
+            't_documento' => 'required|string|max:100',
+            'n_documento' => 'required|max:11',
+            'telefono' => 'required|string|max:100',
         ]);
     }
 
@@ -62,10 +68,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+        $role_standard = Role::where('name','Standard')->first();
+
+        $user = User::create([
+            'name'          => $data['name'],
+            'apellido'      => $data['apellido'],
+            'email'         => $data['email'],
+            'password'      => bcrypt($data['password']),
+            't_documento'   => $data['t_documento'],
+            'n_documento'   => $data['n_documento'],
+            'telefono'      => $data['telefono'],
         ]);
+
+        $user->roles()->attach($role_standard);
+        return $user;
     }
 }
