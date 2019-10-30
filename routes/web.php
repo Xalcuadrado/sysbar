@@ -11,10 +11,75 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController@index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//rutas
+Route::middleware(['auth'])->group(function(){
+	
+
+	//Roles
+	Route::post('roles','RoleController@store')->name('roles.store')
+	->middleware('permission:roles.create');
+
+	Route::get('roles','RoleController@index')->name('roles.index')
+	->middleware('permission:roles.index');
+
+	Route::get('roles/create','RoleController@create')->name('roles.create')
+	->middleware('permission:roles.create');
+
+	Route::put('roles/{role}','RoleController@update')->name('roles.update')
+	->middleware('permission:roles.edit');
+
+	Route::get('roles/{role}','RoleController@show')->name('roles.show')
+	->middleware('permission:roles.show');
+
+	Route::delete('roles/{role}','RoleController@destroy')->name('roles.destroy')
+	->middleware('permission:roles.destroy');
+
+	Route::get('roles/{role}','RoleController@edit')->name('roles.edit')
+	->middleware('permission:roles.edit');
+
+	//Usuarios
+
+	Route::get('users','UserController@index')->name('users.index')
+	->middleware('permission:users.index');
+
+	Route::put('users/{user}','UserController@update')->name('users.update')
+	->middleware('permission:users.edit');
+
+	Route::get('users/{user}','UserController@show')->name('users.show')
+	->middleware('permission:users.show');
+
+	Route::delete('users/{user}','UserController@destroy')->name('users.destroy')
+	->middleware('permission:users.destroy');
+
+	Route::get('users/{user}','UserController@edit')->name('users.edit')
+	->middleware('permission:users.edit');
+
+	//empresas
+
+	Route::post('empresas','EmpresaController@store')->name('empresas.store')
+	->middleware('permission:empresas.create');
+
+	Route::get('empresas/create','EmpresaController@create')->name('empresas.create')
+	->middleware('permission:empresas.create');
+
+	Route::get('empresas','EmpresaController@index')->name('empresas.index')
+	->middleware('permission:empresas.index');
+
+	Route::put('empresas/{empresa}','EmpresaController@update')->name('empresas.update')
+	->middleware('permission:empresas.edit');
+
+	Route::get('empresas/{empresa}','EmpresaController@show')->name('empresas.show')
+	->middleware('permission:empresas.show');
+
+	Route::delete('empresas/{empresa}','EmpresaController@destroy')->name('empresas.destroy')
+	->middleware('permission:empresas.destroy');
+
+	Route::get('empresas/{empresa}/edit','EmpresaController@edit')->name('empresas.edit')
+	->middleware('permission:empresas.edit');
+});
