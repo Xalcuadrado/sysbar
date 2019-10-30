@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title','Detalle de empresa')
 @section('body-class','profile-page sidebar-collapse')
 @section('content')
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{ asset('img/bg_4.jpg')  }}');"></div>

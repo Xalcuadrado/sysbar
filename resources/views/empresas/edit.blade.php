@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title','Edición de empresas')
 @section('body-class','profile-page sidebar-collapse')
 @section('content')
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{ asset('img/bg_4.jpg') }}')">
@@ -6,7 +7,7 @@
   <div class="main main-raised">
     <div class="container">
       <div class="section">
-        <h2 class="title text-center">Editar la empresa</h2>
+        <h2 class="title text-center">Editar empresa</h2>
         <h4 class="text-center description">Estás tratando de editar datos de la empresa <strong>{{ $empresa->nombre }}</strong> </h4>
         <hr style="border-top: 2px solid #c49b63; width: 50%">
 	        <div class="row">

@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Sbar
+    @yield('title', 'SBAR')
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -17,6 +17,7 @@
   <link href="{{asset('css/material-kit.css')}}" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{{asset('demo/demo.css')}}" rel="stylesheet" />
+  <link href="{{asset('css/style.css')}}" rel="stylesheet" />
 </head>
 
 <body class="@yield('body-class')">
@@ -52,15 +53,29 @@
                 @else
                     <li class="dropdown nav-item">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                            <i class="material-icons">apps</i> Components
+                            <i class="material-icons">apps</i> Gestiones
                         </a>
                             <div class="dropdown-menu dropdown-with-icons">
-                        <a href="../index.html" class="dropdown-item">
-                            <i class="material-icons">layers</i> All Components
-                        </a>
-                        <a href="https://demos.creative-tim.com/material-kit/docs/2.1/getting-started/introduction.html" class="dropdown-item">
-                            <i class="material-icons">content_paste</i> Documentation
-                        </a>
+                              @can('empresas.index')
+                              <a href="{{ route('empresas.index') }}" class="dropdown-item">
+                                <i class="material-icons">business</i> Empresas
+                              </a>
+                              @endcan
+                              @can('users.index')
+                              <a href="{{ route('users.index') }}" class="dropdown-item">
+                                <i class="material-icons">face</i> Usuarios
+                              </a>
+                              @endcan
+                              @can('roles.index')
+                              <a href="{{ route('roles.index') }}" class="dropdown-item">
+                                <i class="material-icons">list_alt</i> Roles
+                              </a>
+                              @endcan
+                              @can('categorias.index')
+                              <a href="{{ route('categorias.index') }}" class="dropdown-item">
+                                <i class="material-icons">bubble_chart</i> Categorias
+                              </a>
+                              @endcan
                             </div>
                     </li>
                     <li class="dropdown nav-item">
@@ -114,6 +129,9 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
 <script src="{{asset('js/material-kit.js?v=2.0.6')}}" type="text/javascript"></script>
+
+
+<script src="{{asset('js/searchtable.js')}}" type="text/javascript"></script>
 </body>
 
 </html>

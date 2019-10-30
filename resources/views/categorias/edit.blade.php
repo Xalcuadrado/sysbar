@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Creación de empresas')
+@section('title','Edición de categorias')
 @section('body-class','profile-page sidebar-collapse')
 @section('content')
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{ asset('img/bg_4.jpg') }}')">
@@ -7,27 +7,43 @@
   <div class="main main-raised">
     <div class="container">
       <div class="section">
-        <h2 class="title text-center">Registrar nueva empresa</h2>
-            {!!Form::open(['url'=>'empresas','method'=>'POST','autocomplete'=>'off' , 'files'=>'true'])!!}
-            {{Form::token()}}
+        <h2 class="title text-center">Editar categoria</h2>
+        <h4 class="text-center description">Estás tratando de editar datos de la categoria <strong>{{ $categoria->nombre }}</strong> </h4>
+        <hr style="border-top: 2px solid #c49b63; width: 50%">
+	        <div class="row">
+				<div class="col-sm">
+					@if (count($errors)>0)
+						<div class="alert alert-danger">
+							<ul>
+							@foreach ($errors->all() as $error)
+							<li>{{$error}}</li>
+							@endforeach
+							</ul>
+						</div>
+					@endif
+				</div>
+			</div>
+            {!!Form::model($categoria,['method'=>'PUT','route'=>['categorias.update',$categoria->idcategoria], 'files'=>'true'])!!}
+			{{Form::token()}}
             <div class="row">
-              <div class="col-sm-6">
+              <div class="col-sm">
                   <div class="form-group">
                     <label for="exampleInput1" class="bmd-label-floating">Nombre</label>
-                      <input name="nombre" type="text" class="form-control" id="exampleInput1" autocomplete="off">
-                          <span class="bmd-help">Escriba el nombre de la empresa o álias</span>
+                      <input name="nombre" type="text" class="form-control" id="exampleInput1" autocomplete="off" value="{{ $categoria->nombre }}">
+                          <span class="bmd-help">Escriba el nombre de la categoria</span>
                   </div>
                 </div>
-                <div class="col-sm-6">
-                    <label class="bmd-label-floating">Adjunte una archivo</label>
-                    <input type="file" name="file" class="form-control">
-                </div>  
+                <div class="col-sm">
+                    <div class="form-group">
+                    <textarea name="descripcion" class="form-control" placeholder="Escribe una breve descripción de la categoria" rows="5">{{ $categoria->descripcion }}</textarea>
+                  </div>
+                </div> 
             </div>
             <div class="row">
               <div class="col-sm">
                 <div class="form-group">
-                  <button type="submit" class="btn btn-success btn-round">Crear</button>
-                  <a href="{{ url('empresas') }}" class="btn btn-danger btn-round">Volver</a>
+                  <button type="submit" class="btn btn-success btn-round">Guardar</button>
+                  <a href="{{ url('categorias') }}" class="btn btn-danger btn-round">Volver</a>
                   </div>
                 </div>
               </div>

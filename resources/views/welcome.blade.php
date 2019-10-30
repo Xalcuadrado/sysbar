@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title','Bienvenido a SBAR')
 @section('body-class','landing-page sidebar-collapse')
 @section('content')
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{ asset('img/bg_4.jpg') }}')">

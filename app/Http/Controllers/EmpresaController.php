@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use sysbar\Empresa;
+use DB;
 
 class EmpresaController extends Controller
 {
@@ -16,10 +17,16 @@ class EmpresaController extends Controller
         
     }
 
-    public function index()
+    public function index(Request $request)
     {
-    	$empresas = Empresa::paginate(10);
-    	return view('empresas.index')->with(compact('empresas')); // listado
+    	if($request)
+        {
+            $query=trim($request->get('searchText'));
+            $empresas=DB::table('empresa')->where('nombre','LIKE','%'.$query.'%')
+            ->orderBy('idempresa','desc')
+            ->paginate(10);
+            return view('empresas.index',["empresas"=>$empresas,"searchText"=>$query]);
+        } // listado
     }
     public function create()
     {

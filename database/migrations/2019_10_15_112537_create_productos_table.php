@@ -17,6 +17,7 @@ class CreateProductosTable extends Migration
             $table->increments('idproducto');
             $table->string('codigo');
             $table->string('nombre');
+            $table->integer('precio');
             $table->integer('stock');
             $table->string('imagen');
             $table->string('estado');

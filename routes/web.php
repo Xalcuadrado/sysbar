@@ -40,7 +40,7 @@ Route::middleware(['auth'])->group(function(){
 	Route::delete('roles/{role}','RoleController@destroy')->name('roles.destroy')
 	->middleware('permission:roles.destroy');
 
-	Route::get('roles/{role}','RoleController@edit')->name('roles.edit')
+	Route::get('roles/{role}/edit','RoleController@edit')->name('roles.edit')
 	->middleware('permission:roles.edit');
 
 	//Usuarios
@@ -57,10 +57,10 @@ Route::middleware(['auth'])->group(function(){
 	Route::delete('users/{user}','UserController@destroy')->name('users.destroy')
 	->middleware('permission:users.destroy');
 
-	Route::get('users/{user}','UserController@edit')->name('users.edit')
+	Route::get('users/{user}/edit','UserController@edit')->name('users.edit')
 	->middleware('permission:users.edit');
 
-	//empresas
+	//Rutas de las empresas
 
 	Route::post('empresas','EmpresaController@store')->name('empresas.store')
 	->middleware('permission:empresas.create');
@@ -82,4 +82,27 @@ Route::middleware(['auth'])->group(function(){
 
 	Route::get('empresas/{empresa}/edit','EmpresaController@edit')->name('empresas.edit')
 	->middleware('permission:empresas.edit');
+
+	//Rutas de las categorias
+
+	Route::post('categorias','CategoriaController@store')->name('categorias.store')
+	->middleware('permission:categorias.create');
+
+	Route::get('categorias/create','CategoriaController@create')->name('categorias.create')
+	->middleware('permission:categorias.create');
+
+	Route::get('categorias','CategoriaController@index')->name('categorias.index')
+	->middleware('permission:categorias.index');
+
+	Route::put('categorias/{categoria}','CategoriaController@update')->name('categorias.update')
+	->middleware('permission:categorias.edit');
+
+	Route::get('categorias/{categoria}','CategoriaController@show')->name('categorias.show')
+	->middleware('permission:categorias.show');
+
+	Route::delete('categorias/{categoria}','CategoriaController@destroy')->name('categorias.destroy')
+	->middleware('permission:categorias.destroy');
+
+	Route::get('categorias/{categoria}/edit','CategoriaController@edit')->name('categorias.edit')
+	->middleware('permission:categorias.edit');
 });

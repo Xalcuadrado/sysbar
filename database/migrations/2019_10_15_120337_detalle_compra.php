@@ -16,8 +16,6 @@ class DetalleCompra extends Migration
         Schema::create('detalle_compra', function (Blueprint $table) {
             $table->increments('iddetalle_compra');
             $table->integer('cantidad');
-            $table->integer('precio_compra');
-            $table->integer('precio_venta');
             $table->integer('idproducto')->unsigned()->index();
             $table->foreign('idproducto')->references('idproducto')->on('producto')->onDelete('cascade');
             $table->integer('idcompra')->unsigned()->index();
