@@ -11,14 +11,14 @@
             {!!Form::open(['url'=>'empresas','method'=>'POST','autocomplete'=>'off' , 'files'=>'true'])!!}
             {{Form::token()}}
             <div class="row">
-              <div class="col-sm-6">
+              <div class="col-sm">
                   <div class="form-group">
                     <label for="exampleInput1" class="bmd-label-floating">Nombre</label>
                       <input name="nombre" type="text" class="form-control" id="exampleInput1" autocomplete="off">
                           <span class="bmd-help">Escriba el nombre de la empresa o álias</span>
                   </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm">
                     <label class="bmd-label-floating">Adjunte una archivo</label>
                     <input type="file" name="file" class="form-control">
                 </div>  

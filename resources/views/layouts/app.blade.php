@@ -71,6 +71,11 @@
                                 <i class="material-icons">list_alt</i> Roles
                               </a>
                               @endcan
+                              @can('productos.index')
+                              <a href="{{ route('productos.index') }}" class="dropdown-item">
+                                <i class="material-icons">fastfood</i> Productos
+                              </a>
+                              @endcan
                               @can('categorias.index')
                               <a href="{{ route('categorias.index') }}" class="dropdown-item">
                                 <i class="material-icons">bubble_chart</i> Categorias

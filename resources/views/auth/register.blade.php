@@ -13,6 +13,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm">
+                                    <br>
                                     <div class="form-group">
                                         <select name="t_documento" class="custom-select">
                                             <option value="" selected disabled>Seleccione Identificación</option>
