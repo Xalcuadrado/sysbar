@@ -105,4 +105,27 @@ Route::middleware(['auth'])->group(function(){
 
 	Route::get('categorias/{categoria}/edit','CategoriaController@edit')->name('categorias.edit')
 	->middleware('permission:categorias.edit');
+
+	//Rutas de los ingredientes
+
+	Route::post('ingredientes','IngredienteController@store')->name('ingredientes.store')
+	->middleware('permission:ingredientes.create');
+
+	Route::get('ingredientes/create','IngredienteController@create')->name('ingredientes.create')
+	->middleware('permission:ingredientes.create');
+
+	Route::get('ingredientes','IngredienteController@index')->name('ingredientes.index')
+	->middleware('permission:ingredientes.index');
+
+	Route::put('ingredientes/{ingrediente}','IngredienteController@update')->name('ingredientes.update')
+	->middleware('permission:ingredientes.edit');
+
+	Route::get('ingredientes/{ingrediente}','IngredienteController@show')->name('ingredientes.show')
+	->middleware('permission:ingredientes.show');
+
+	Route::delete('ingredientes/{ingrediente}','IngredienteController@destroy')->name('ingredientes.destroy')
+	->middleware('permission:ingredientes.destroy');
+
+	Route::get('ingredientes/{ingrediente}/edit','IngredienteController@edit')->name('ingredientes.edit')
+	->middleware('permission:ingredientes.edit');
 });

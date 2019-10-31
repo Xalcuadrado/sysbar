@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Creación de categorias')
+@section('title','Creación de ingredientes')
 @section('body-class','profile-page sidebar-collapse')
 @section('content')
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{ asset('img/bg_4.jpg') }}')">
@@ -7,28 +7,42 @@
   <div class="main main-raised">
     <div class="container">
       <div class="section">
-        <h2 class="title text-center">Registrar nueva categoria</h2>
-            {!!Form::open(['url'=>'categorias','method'=>'POST','autocomplete'=>'off' , 'files'=>'true'])!!}
+        <h2 class="title text-center">Registrar nuevo ingrediente</h2>
+            {!!Form::open(['url'=>'ingredientes','method'=>'POST','autocomplete'=>'off'])!!}
             {{Form::token()}}
             <div class="row">
+            	<div class="col-sm">
+      					<div class="form-group">
+      						<br>
+      						<select name="idempresa" id="idempresa" class="custom-select" data-live-search="true">
+      							<option selected disabled>
+      								Seleccione la empresa
+      							</option>
+      							@foreach($empresas as $empresa)
+      								@foreach($empresa_users as $eu)
+      									@if(auth()->id()==$eu->idusers && $empresa->idempresa==$eu->idempresa)
+      							<option value="{{$empresa->idempresa}}">
+      								{{$empresa->nombre}}
+      							</option>
+      									@endif
+      								@endforeach
+      							@endforeach
+      						</select>
+      					</div>
+      			  </div>
               <div class="col-sm">
                   <div class="form-group">
                     <label for="exampleInput1" class="bmd-label-floating">Nombre</label>
                       <input name="nombre" type="text" class="form-control" id="exampleInput1" autocomplete="off">
-                          <span class="bmd-help">Escriba el nombre de la categoria</span>
+                          <span class="bmd-help">Escriba el nombre o descripción del ingrediente</span>
                   </div>
                 </div>
-                <div class="col-sm">
-                    <div class="form-group">
-                    <textarea name="descripcion" class="form-control" placeholder="Escribe una breve descripción de la categoria" rows="5"></textarea>
-                  </div>
-                </div>  
             </div>
             <div class="row">
               <div class="col-sm">
                 <div class="form-group">
                   <button type="submit" class="btn btn-success btn-round">Crear</button>
-                  <a href="{{ url('categorias') }}" class="btn btn-danger btn-round">Volver</a>
+                  <a href="{{ url('ingredientes') }}" class="btn btn-danger btn-round">Volver</a>
                   </div>
                 </div>
               </div>

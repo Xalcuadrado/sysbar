@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Edición de usuarios')
+@section('title','Edición de roles')
 @section('body-class','profile-page sidebar-collapse')
 @section('content')
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{ asset('img/bg_4.jpg') }}')">
@@ -113,7 +113,7 @@
             <div class="row">
               <div class="col-sm">
                 <div class="form-group">
-                  <button type="submit" class="btn btn-success btn-round">Crear</button>
+                  <button type="submit" class="btn btn-success btn-round">Guardar</button>
                   <a href="{{ url('roles') }}" class="btn btn-danger btn-round">Volver</a>
                   </div>
                 </div>

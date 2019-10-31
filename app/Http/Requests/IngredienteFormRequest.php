@@ -24,7 +24,7 @@ class IngredienteFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'idempresa',
+            'idempresa' => 'required',
             'nombre' =>'required|max:100'
         ];
     }

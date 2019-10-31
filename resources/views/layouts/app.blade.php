@@ -76,6 +76,11 @@
                                 <i class="material-icons">bubble_chart</i> Categorias
                               </a>
                               @endcan
+                              @can('ingredientes.index')
+                              <a href="{{ route('ingredientes.index') }}" class="dropdown-item">
+                                <i class="material-icons">eco</i> Ingredientes
+                              </a>
+                              @endcan
                             </div>
                     </li>
                     <li class="dropdown nav-item">
@@ -130,7 +135,7 @@
 <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
 <script src="{{asset('js/material-kit.js?v=2.0.6')}}" type="text/javascript"></script>
 
-
+@stack('scripts')
 <script src="{{asset('js/searchtable.js')}}" type="text/javascript"></script>
 </body>
 
