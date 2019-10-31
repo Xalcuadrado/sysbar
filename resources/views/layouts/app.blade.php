@@ -76,9 +76,19 @@
                                 <i class="material-icons">fastfood</i> Productos
                               </a>
                               @endcan
+                              @can('proveedores.index')
+                              <a href="{{ route('proveedores.index') }}" class="dropdown-item">
+                                <i class="material-icons">business_center</i> Proveedores
+                              </a>
+                              @endcan
                               @can('categorias.index')
                               <a href="{{ route('categorias.index') }}" class="dropdown-item">
                                 <i class="material-icons">bubble_chart</i> Categorias
+                              </a>
+                              @endcan
+                              @can('mesas.index')
+                              <a href="{{ route('mesas.index') }}" class="dropdown-item">
+                                <i class="material-icons">deck</i> Mesas
                               </a>
                               @endcan
                               @can('ingredientes.index')
@@ -105,17 +115,17 @@
                     </li>
                 @endguest
                     <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank" data-original-title="Follow us on Twitter">
+                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank" data-original-title="Siguenos en twitter">
                            <i class="fa fa-twitter"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank" data-original-title="Like us on Facebook">
+                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank" data-original-title="Dale me gusta a nuestro Facebook">
                             <i class="fa fa-facebook-square"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank" data-original-title="Follow us on Instagram">
+                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank" data-original-title="Siguenos en Instagram">
                             <i class="fa fa-instagram"></i>
                         </a>
                     </li>

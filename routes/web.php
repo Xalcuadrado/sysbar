@@ -148,7 +148,53 @@ Route::middleware(['auth'])->group(function(){
 
 	Route::delete('productos/{producto}','ProductoController@destroy')->name('productos.destroy')
 	->middleware('permission:productos.destroy');
-	
+
 	Route::get('productos/{producto}/edit','ProductoController@edit')->name('productos.edit')
 	->middleware('permission:productos.edit');
+
+	//Rutas de los proveedores
+
+	Route::post('proveedores','ProveedorController@store')->name('proveedores.store')
+	->middleware('permission:proveedores.create');
+
+	Route::get('proveedores/create','ProveedorController@create')->name('proveedores.create')
+	->middleware('permission:proveedores.create');
+
+	Route::get('proveedores','ProveedorController@index')->name('proveedores.index')
+	->middleware('permission:proveedores.index');
+
+	Route::put('proveedores/{proveedor}','ProveedorController@update')->name('proveedores.update')
+	->middleware('permission:proveedores.edit');
+
+	Route::get('proveedores/{proveedor}','ProveedorController@show')->name('proveedores.show')
+	->middleware('permission:proveedores.show');
+
+	Route::delete('proveedores/{proveedor}','ProveedorController@destroy')->name('proveedores.destroy')
+	->middleware('permission:proveedores.destroy');
+	
+	Route::get('proveedores/{proveedor}/edit','ProveedorController@edit')->name('proveedores.edit')
+	->middleware('permission:proveedores.edit');
+
+	//Rutas de los mesas
+
+	Route::post('mesas','MesaController@store')->name('mesas.store')
+	->middleware('permission:mesas.create');
+
+	Route::get('mesas/create','MesaController@create')->name('mesas.create')
+	->middleware('permission:mesas.create');
+
+	Route::get('mesas','MesaController@index')->name('mesas.index')
+	->middleware('permission:mesas.index');
+
+	Route::put('mesas/{mesa}','MesaController@update')->name('mesas.update')
+	->middleware('permission:mesas.edit');
+
+	Route::get('mesas/{mesa}','MesaController@show')->name('mesas.show')
+	->middleware('permission:mesas.show');
+
+	Route::delete('mesas/{mesa}','MesaController@destroy')->name('mesas.destroy')
+	->middleware('permission:mesas.destroy');
+	
+	Route::get('mesas/{mesa}/edit','MesaController@edit')->name('mesas.edit')
+	->middleware('permission:mesas.edit');
 });
