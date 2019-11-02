@@ -52,6 +52,7 @@
                     </li>
                 @else
                     <li class="dropdown nav-item">
+                      
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                             <i class="material-icons">apps</i> Gestiones
                         </a>
@@ -84,11 +85,6 @@
                               @can('categorias.index')
                               <a href="{{ route('categorias.index') }}" class="dropdown-item">
                                 <i class="material-icons">bubble_chart</i> Categorias
-                              </a>
-                              @endcan
-                              @can('mesas.index')
-                              <a href="{{ route('mesas.index') }}" class="dropdown-item">
-                                <i class="material-icons">deck</i> Mesas
                               </a>
                               @endcan
                               @can('ingredientes.index')
@@ -129,6 +125,11 @@
                             <i class="fa fa-instagram"></i>
                         </a>
                     </li>
+                    <li class="nav-item" >
+                      <a href="{{ url('/carrito') }}" class="nav-link btn btn-success">
+                        <i class="material-icons">shopping_cart</i> Carrito
+                      </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -138,6 +139,8 @@
 </div>
  <!--   Core JS Files   -->
 <script src="{{asset('js/core/jquery.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/bootstrap-input-spinner.js')}}" type="text/javascript"></script>
+
 <script src="{{asset('js/core/popper.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/core/bootstrap-material-design.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/plugins/moment.min.js')}}"></script>
@@ -149,6 +152,10 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
 <script src="{{asset('js/material-kit.js?v=2.0.6')}}" type="text/javascript"></script>
+
+<script>
+    $("input[type='number']").inputSpinner()
+</script>
 
 @stack('scripts')
 <script src="{{asset('js/searchtable.js')}}" type="text/javascript"></script>

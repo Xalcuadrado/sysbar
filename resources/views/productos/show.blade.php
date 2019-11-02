@@ -64,7 +64,7 @@
         <div class="row">
           <div class="col-sm">
             <div class="form-group">
-              <a href="{{ url('categorias') }}" class="btn btn-danger btn-round">Volver</a>
+              <a href="{{ url('productos') }}" class="btn btn-danger btn-round">Volver</a>
             </div>
           </div>
         </div>

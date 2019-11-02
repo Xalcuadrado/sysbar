@@ -15,12 +15,18 @@ Route::get('/', 'WelcomeController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/{empresa}', 'HomeController@index')->name('home');
+Route::get('/carrito', 'CarritoController@index')->name('carrito');
 
 //rutas
 Route::middleware(['auth'])->group(function(){
 	
 
+	Route::get('products/{producto}', 'ProductController@show')->name('products.show');
+
+	Route::post('/cart', 'CartDetailController@store');
+	Route::delete('/cart', 'CartDetailController@destroy');
+	Route::post('/order', 'CartController@update');
 	//Roles
 	Route::post('roles','RoleController@store')->name('roles.store')
 	->middleware('permission:roles.create');
@@ -177,24 +183,24 @@ Route::middleware(['auth'])->group(function(){
 
 	//Rutas de los mesas
 
-	Route::post('mesas','MesaController@store')->name('mesas.store')
-	->middleware('permission:mesas.create');
+	// Route::post('mesas','MesaController@store')->name('mesas.store')
+	// ->middleware('permission:mesas.create');
 
-	Route::get('mesas/create','MesaController@create')->name('mesas.create')
-	->middleware('permission:mesas.create');
+	// Route::get('mesas/create','MesaController@create')->name('mesas.create')
+	// ->middleware('permission:mesas.create');
 
-	Route::get('mesas','MesaController@index')->name('mesas.index')
-	->middleware('permission:mesas.index');
+	// Route::get('mesas','MesaController@index')->name('mesas.index')
+	// ->middleware('permission:mesas.index');
 
-	Route::put('mesas/{mesa}','MesaController@update')->name('mesas.update')
-	->middleware('permission:mesas.edit');
+	// Route::put('mesas/{mesa}','MesaController@update')->name('mesas.update')
+	// ->middleware('permission:mesas.edit');
 
-	Route::get('mesas/{mesa}','MesaController@show')->name('mesas.show')
-	->middleware('permission:mesas.show');
+	// Route::get('mesas/{mesa}','MesaController@show')->name('mesas.show')
+	// ->middleware('permission:mesas.show');
 
-	Route::delete('mesas/{mesa}','MesaController@destroy')->name('mesas.destroy')
-	->middleware('permission:mesas.destroy');
+	// Route::delete('mesas/{mesa}','MesaController@destroy')->name('mesas.destroy')
+	// ->middleware('permission:mesas.destroy');
 	
-	Route::get('mesas/{mesa}/edit','MesaController@edit')->name('mesas.edit')
-	->middleware('permission:mesas.edit');
+	// Route::get('mesas/{mesa}/edit','MesaController@edit')->name('mesas.edit')
+	// ->middleware('permission:mesas.edit');
 });

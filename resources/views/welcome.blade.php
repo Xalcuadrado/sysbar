@@ -9,7 +9,7 @@
           <h1 class="title">Tu plataforma de pedidos en linea.</h1>
           <h4>Empresas y usuario listos para interactuar optimizando el tiempo de ambos, realizar pedidos, controlar el stock y descripciones detalladas es lo que se necesita para garantizar la mejor experiencia de todos.</h4>
           <br>
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn btn-danger btn-raised btn-lg">
+          <a href="https://www.youtube.com" target="_blank" class="btn btn-danger btn-raised btn-lg">
             <i class="fa fa-play"></i> ¿Cómo funciona?
           </a>
         </div>
@@ -27,14 +27,18 @@
             <div class="col-md-4">
               <div class="team-player">
                 <div class="card card-plain">
-                  <a href="">
                     <div class="col-md-6 ml-auto mr-auto">
                       <img width="100px" height="100px" src="{{asset('imagenes/empresas/'.$empresa->logo)}}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
                     </div>
                     <h4 class="card-title">{{ $empresa->nombre }}
                     </h4>
-                      
+                    <div class="row">
+                      <div class="col-sm">
+                        <a href="{{url('/home', $empresa->idempresa) }}" class="btn btn-info btn-raised btn-sm">
+                      <i class="fa fa-check"></i> Entrar
                     </a>
+                      </div>
+                    </div>
                     
                   <div class="card-footer justify-content-center">
                     <a href="#" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>

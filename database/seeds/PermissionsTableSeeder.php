@@ -89,31 +89,31 @@ class PermissionsTableSeeder extends Seeder
         ]);
 
                 //Permisos de mesas
-        Permission::create([
-        	'name'			=>'Navegar mesas',
-        	'slug'			=>'mesas.index',
-        	'description'	=>'Lista y navega todos los mesas del sistema',
-        ]);
-        Permission::create([
-        	'name'			=>'Ver detalle de mesa',
-        	'slug'			=>'mesas.show',
-        	'description'	=>'Ver en detalle cada mesa del sistema',
-        ]);
-        Permission::create([
-        	'name'			=>'Creación de mesas',
-        	'slug'			=>'mesas.create',
-        	'description'	=>'Crear mesa del sistema',
-        ]);
-        Permission::create([
-        	'name'			=>'Edición de mesas',
-        	'slug'			=>'mesas.edit',
-        	'description'	=>'Editar cualquier dato del mesa del sistema',
-        ]);
-        Permission::create([
-        	'name'			=>'Eliminar mesa',
-        	'slug'			=>'mesas.destroy',
-        	'description'	=>'Eliminar cualquier mesa del sistema',
-        ]);
+        // Permission::create([
+        // 	'name'			=>'Navegar mesas',
+        // 	'slug'			=>'mesas.index',
+        // 	'description'	=>'Lista y navega todos los mesas del sistema',
+        // ]);
+        // Permission::create([
+        // 	'name'			=>'Ver detalle de mesa',
+        // 	'slug'			=>'mesas.show',
+        // 	'description'	=>'Ver en detalle cada mesa del sistema',
+        // ]);
+        // Permission::create([
+        // 	'name'			=>'Creación de mesas',
+        // 	'slug'			=>'mesas.create',
+        // 	'description'	=>'Crear mesa del sistema',
+        // ]);
+        // Permission::create([
+        // 	'name'			=>'Edición de mesas',
+        // 	'slug'			=>'mesas.edit',
+        // 	'description'	=>'Editar cualquier dato del mesa del sistema',
+        // ]);
+        // Permission::create([
+        // 	'name'			=>'Eliminar mesa',
+        // 	'slug'			=>'mesas.destroy',
+        // 	'description'	=>'Eliminar cualquier mesa del sistema',
+        // ]);
 
         //Permisos de empresas
         Permission::create([
@@ -194,33 +194,6 @@ class PermissionsTableSeeder extends Seeder
         	'name'			=>'Eliminar compra',
         	'slug'			=>'compras.destroy',
         	'description'	=>'Eliminar cualquier compra del sistema',
-        ]);
-
-        //Permisos de ventas
-        Permission::create([
-        	'name'			=>'Navegar ventas',
-        	'slug'			=>'ventas.index',
-        	'description'	=>'Lista y navega todos los ventas del sistema',
-        ]);
-        Permission::create([
-        	'name'			=>'Ver detalle de venta',
-        	'slug'			=>'ventas.show',
-        	'description'	=>'Ver en detalle cada venta del sistema',
-        ]);
-        Permission::create([
-        	'name'			=>'Creación de ventas',
-        	'slug'			=>'ventas.create',
-        	'description'	=>'Crear venta del sistema',
-        ]);
-        Permission::create([
-        	'name'			=>'Edición de ventas',
-        	'slug'			=>'ventas.edit',
-        	'description'	=>'Editar cualquier dato del venta del sistema',
-        ]);
-        Permission::create([
-        	'name'			=>'Eliminar venta',
-        	'slug'			=>'ventas.destroy',
-        	'description'	=>'Eliminar cualquier venta del sistema',
         ]);
 
 
