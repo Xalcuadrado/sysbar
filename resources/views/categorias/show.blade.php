@@ -10,7 +10,7 @@
           <div class="col-md-6 ml-auto mr-auto">
             <div class="profile">
               <div class="avatar">
-                <img width="150px" height="150px" src="{{asset('img/logosbar.png')}}" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+                <img width="150px" height="150px" src="{{asset('img/logosbar.png')}}" alt="Circle Image" class="img-raised img-thumbnail img-fluid">
               </div>
               <div class="name">
                 <h3 class="title">Categoria</h3>

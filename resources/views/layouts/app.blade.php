@@ -45,10 +45,24 @@
                         <a class="nav-link" href="{{ route('register') }}">Registrarse
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()">
-                        <i class="material-icons">cloud_download</i> Download
+                    <li class=" dropdown nav-item">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <i class="material-icons">forward</i> Información
                         </a>
+                        <div class="dropdown-menu dropdown-with-icons">
+                              <a href="#" class="dropdown-item">
+                                <i class="material-icons">description</i> Funcionalidades
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                <i class="material-icons">local_atm</i> Precios
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                <i class="material-icons">group</i> Quienes somos
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                <i class="material-icons">help_outline</i> Preguntas Frecuentes
+                              </a>
+                            </div>
                     </li>
                 @else
                     <li class="dropdown nav-item">
@@ -70,6 +84,11 @@
                               @can('roles.index')
                               <a href="{{ route('roles.index') }}" class="dropdown-item">
                                 <i class="material-icons">list_alt</i> Roles
+                              </a>
+                              @endcan
+                              @can('compras.index')
+                              <a href="{{ route('compras.index') }}" class="dropdown-item">
+                                <i class="material-icons">store</i> Compras
                               </a>
                               @endcan
                               @can('productos.index')

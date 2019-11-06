@@ -181,6 +181,29 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('proveedores/{proveedor}/edit','ProveedorController@edit')->name('proveedores.edit')
 	->middleware('permission:proveedores.edit');
 
+	//Rutas de los proveedores
+
+	Route::post('compras','CompraController@store')->name('compras.store')
+	->middleware('permission:compras.create');
+
+	Route::get('compras/create','CompraController@create')->name('compras.create')
+	->middleware('permission:compras.create');
+
+	Route::get('compras','CompraController@index')->name('compras.index')
+	->middleware('permission:compras.index');
+
+	Route::put('compras/{compra}','CompraController@update')->name('compras.update')
+	->middleware('permission:compras.edit');
+
+	Route::get('compras/{compra}','CompraController@show')->name('compras.show')
+	->middleware('permission:compras.show');
+
+	Route::delete('compras/{compra}','CompraController@destroy')->name('compras.destroy')
+	->middleware('permission:compras.destroy');
+	
+	Route::get('compras/{compra}/edit','CompraController@edit')->name('compras.edit')
+	->middleware('permission:compras.edit');
+
 	//Rutas de los mesas
 
 	// Route::post('mesas','MesaController@store')->name('mesas.store')

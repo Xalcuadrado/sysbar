@@ -28,7 +28,7 @@
               <div class="team-player">
                 <div class="card card-plain">
                     <div class="col-md-6 ml-auto mr-auto">
-                      <img width="100px" height="100px" src="{{asset('imagenes/empresas/'.$empresa->logo)}}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+                      <img width="100px" height="100px" src="{{asset('imagenes/empresas/'.$empresa->logo)}}" alt="Thumbnail Image" class="img-raised img-thumbnail img-fluid">
                     </div>
                     <h4 class="card-title">{{ $empresa->nombre }}
                     </h4>
