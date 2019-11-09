@@ -18,7 +18,7 @@
             <div class="alert alert-success">
               {{ session('notificacion') }}
             </div>
-          @endif
+              @endif
                 <div class="row">
                   <div class="col-sm text-left">
                     <h5><strong>Precio : </strong> $ {{ $producto->precio }}</h5>

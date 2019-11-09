@@ -75,9 +75,25 @@
           <div class="form-group">
             <form method="post" action="{{ url('/order') }}">
               {{ csrf_field() }}
-                <button type="submit" class="btn btn-info btn-round">
-                <i class="material-icons">done</i>Realizar pedido
+              <br>
+              <div class="row">
+                <div class="col-sm">
+                  <select name="empresa_id" class="custom-select" onchange="validar()">
+                    <option value="0" disabled selected>Selecciona el local</option>
+                    @foreach($empresas as $empresa)
+                    <option value="{{ $empresa->idempresa }}">
+                      {{ $empresa->nombre }}
+                    </option>
+                    @endforeach
+                  </select>
+                </div>
+                <div class="col-sm">
+                  <button id="ver" type="submit" class="btn btn-info btn-round" disabled>
+                  <i class="material-icons">done</i>Realizar pedido
                 </button>
+                </div>
+              </div>
+                
             </form>
           </div>
         </div>
@@ -86,4 +102,39 @@
       </div>
     </div>
   </div>
+  <footer class="footer footer-default">
+    <div class="container">
+      <nav class="float-left">
+        <ul>
+          <li>
+            <a href="">
+              Desarrolladores
+            </a>
+          </li>
+          <li>
+            <a href="">
+              CEDIV Co.
+            </a>
+          </li>
+          <li>
+            <a href="">
+              Redes Sociales
+            </a>
+          </li>
+          <li>
+            <a href="">
+              Terminos y condiciones
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="copyright float-right">
+        &copy;
+        <script>
+          document.write(new Date().getFullYear())
+        </script>, creado con <i class="material-icons">favorite</i> de
+        <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> - editado por Xalcuadrado.
+      </div>
+    </div>
+  </footer>
   @endsection

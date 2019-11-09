@@ -6,6 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cart extends Model
 {
+    protected $table='carts';
+
+    protected $primaryKey='id';
+
+    protected $fillable = [
+        'user_id','empresa_id','status'
+    ];
+
+    protected $guarded =[];
+
     public function details()
     {
         return $this->hasMany(CartDetail::class);

@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    public function update()
+    public function update(Request $request)
     {
     	$cart = auth()->user()->cart;
+    	$cart->empresa_id = $request->empresa_id;
     	$cart->status = "pendiente";
     	$cart->save(); //update
 

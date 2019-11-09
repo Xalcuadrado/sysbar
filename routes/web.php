@@ -27,6 +27,34 @@ Route::middleware(['auth'])->group(function(){
 	Route::post('/cart', 'CartDetailController@store');
 	Route::delete('/cart', 'CartDetailController@destroy');
 	Route::post('/order', 'CartController@update');
+
+	//asignar empresa a usuario
+
+	Route::get('asignar','AsignarEmpresaController@index')->name('asignar.index');
+
+	Route::put('asignar/{eu}','AsignarEmpresaController@update')->name('asignar.update');
+
+	Route::post('asignar/','AsignarEmpresaController@store')->name('asignar.store');
+
+	Route::delete('asignar/{eu}','AsignarEmpresaController@destroy')->name('asignar.destroy');
+
+
+	Route::get('asignar/{eu}','AsignarEmpresaController@show')->name('asignar.show');
+
+
+	//orders
+
+	Route::get('orders','OrderController@index')->name('orders.index');
+
+	Route::get('allorders','OrderController@allindex')->name('allorders.index');
+
+	Route::put('orders/{order}','OrderController@update')->name('orders.update');
+
+	Route::get('orders/{order}','OrderController@show')->name('orders.show');
+	
+	Route::delete('orders/{order}','OrderController@destroy')->name('orders.destroy');
+
+
 	//Roles
 	Route::post('roles','RoleController@store')->name('roles.store')
 	->middleware('permission:roles.create');

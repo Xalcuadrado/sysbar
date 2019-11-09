@@ -33,11 +33,16 @@ class HomeController extends Controller
         $productos=DB::table('producto as p')
         ->join('empresa as e','p.idempresa','=','e.idempresa')
         ->join('categoria as c','p.idcategoria','=','c.idcategoria')
-        ->select('e.idempresa','e.nombre as empresa','e.logo','p.idproducto','p.codigo','p.nombre as producto','p.precio','p.stock','p.imagen','p.descripcion','p.estado','c.nombre as categoria')
+        ->select('e.idempresa','e.nombre as empresa','e.logo','p.idproducto','p.nombre as producto','p.precio','p.stock','p.imagen','c.nombre as categoria','p.descripcion')
         ->where('e.idempresa','=',$id)
         ->paginate(9);
 
-        return view('home')->with(compact('productos','empresa'));
+        $detalles=DB::table('detalle_ingrediente as dei')
+        ->join('ingrediente as ing','ing.idingrediente','=','dei.idingrediente')
+        ->select('ing.idingrediente','ing.nombre as ingrediente','dei.idproducto','dei.cantidad')
+        ->get();
+
+        return view('home')->with(compact('productos','empresa','detalles'));
     }
 
 }

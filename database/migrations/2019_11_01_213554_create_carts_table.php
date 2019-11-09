@@ -18,6 +18,8 @@ class CreateCartsTable extends Migration
             $table->string('status');
             $table->integer('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('empresa_id')->unsigned()->index();
+            $table->foreign('empresa_id')->references('idempresa')->on('empresa')->onDelete('cascade');
             $table->timestamps();
         });
     }

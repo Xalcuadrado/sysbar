@@ -18,6 +18,20 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{{asset('demo/demo.css')}}" rel="stylesheet" />
   <link href="{{asset('css/style.css')}}" rel="stylesheet" />
+
+    <script>
+      function validar()
+      {
+        document.getElementById("ver").disabled="disabled";
+        for(var i=0;i<document.getElementsByTagName("select").length;i++)
+        {
+          if(document.getElementsByTagName("select")[i].value==0)
+            return false;
+        }
+        document.getElementById("ver").disabled=false;
+      }
+    </script>
+
 </head>
 
 <body class="@yield('body-class')">
@@ -37,14 +51,6 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                 @guest
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Iniciar Sesión
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">Registrarse
-                        </a>
-                    </li>
                     <li class=" dropdown nav-item">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                             <i class="material-icons">forward</i> Información
@@ -64,9 +70,67 @@
                               </a>
                             </div>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">Iniciar Sesión
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">Registrarse
+                        </a>
+                    </li>
                 @else
+                    <li class=" dropdown nav-item">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <i class="material-icons">forward</i> Información
+                        </a>
+                        <div class="dropdown-menu dropdown-with-icons">
+                              <a href="#" class="dropdown-item">
+                                <i class="material-icons">description</i> Funcionalidades
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                <i class="material-icons">local_atm</i> Precios
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                <i class="material-icons">group</i> Quienes somos
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                <i class="material-icons">help_outline</i> Preguntas Frecuentes
+                              </a>
+                            </div>
+                    </li>
                     <li class="dropdown nav-item">
-                      
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <i class="material-icons">shopping_basket</i> Pedidos
+                        </a>
+                            <div class="dropdown-menu dropdown-with-icons">
+                              <a href="{{ route('orders.index') }}" class="dropdown-item">
+                                <i class="material-icons">watch_later</i> Pendientes
+                              </a>
+                              <a href="" class="dropdown-item">
+                                <i class="material-icons">remove_shopping_cart</i> Cancelados
+                              </a>
+                              <a href="" class="dropdown-item">
+                                <i class="material-icons">shopping_cart</i> Realizados
+                              </a>
+                              <a href="" class="dropdown-item">
+                                <i class="material-icons">list_alt</i> Todos los pedidos
+                              </a>
+                            </div>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <i class="material-icons">assessment</i> Reportes
+                        </a>
+                            <div class="dropdown-menu dropdown-with-icons">
+                              <a href="" class="dropdown-item">
+                                <i class="material-icons">attach_money</i> Ventas
+                              </a>
+                              <a href="" class="dropdown-item">
+                                <i class="material-icons">fastfood</i> Productos
+                              </a>
+                            </div>
+                    </li>
+                    <li class="dropdown nav-item">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                             <i class="material-icons">apps</i> Gestiones
                         </a>
@@ -76,6 +140,9 @@
                                 <i class="material-icons">business</i> Empresas
                               </a>
                               @endcan
+                              <a href="{{ route('asignar.index') }}" class="dropdown-item">
+                                <i class="material-icons">supervisor_account</i> Usuarios de empresas
+                              </a>
                               @can('users.index')
                               <a href="{{ route('users.index') }}" class="dropdown-item">
                                 <i class="material-icons">face</i> Usuarios
@@ -130,17 +197,17 @@
                     </li>
                 @endguest
                     <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank" data-original-title="Siguenos en twitter">
+                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="" target="_blank" data-original-title="Siguenos en twitter">
                            <i class="fa fa-twitter"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank" data-original-title="Dale me gusta a nuestro Facebook">
+                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="" target="_blank" data-original-title="Dale me gusta a nuestro Facebook">
                             <i class="fa fa-facebook-square"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank" data-original-title="Siguenos en Instagram">
+                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="" target="_blank" data-original-title="Siguenos en Instagram">
                             <i class="fa fa-instagram"></i>
                         </a>
                     </li>

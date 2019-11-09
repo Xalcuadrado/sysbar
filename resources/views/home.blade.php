@@ -9,19 +9,32 @@
       <div class="section text-center">
         <h2 class="title">Productos</h2>
       <p></p>
+      @if (session('notificacion'))
+            <div class="alert alert-success">
+              {{ session('notificacion') }}
+            </div>
+            @endif
         <div class="team">
           <div class="row">
             @foreach($productos as $producto)
             <div class="col-md-4">
-              <div class="team-player">
+              <div class="team-player img-raised img-thumbnail" style="margin-bottom: 20px;">
                 <div class="card card-plain">
-                  <a href="{{ route('products.show', $producto->idproducto )}}">
+                  <!-- <a href="{{ route('products.show', $producto->idproducto )}}">
                     <div class="col-md-6 ml-auto mr-auto">
-                      <img width="100px" height="100px" src="{{asset('imagenes/productos/'.$producto->imagen)}}" alt="Thumbnail Image" class="img-raised img-thumbnail img-fluid">
+                      <img width="200px" height="200px" src="{{asset('imagenes/productos/'.$producto->imagen)}}" alt="Thumbnail Image" class="img-raised img-thumbnail img-fluid">
                     </div>
-                    <h4 class="card-title">{{ $producto->producto }}
-                    </h4>
-                    </a>
+                    <h4 class="label">{{ $producto->producto }}</h4>
+                    <label class="label">
+                      <strong>$ {{ $producto->precio }} -</strong>{{ $producto->stock }} disponibles</label>
+                  </a> -->
+                  <a href="" data-target="#modal-addcart-{{$producto->idproducto}}" data-toggle="modal" rel="tooltip" title="Ver producto">
+                    <div class="col-md-6 ml-auto mr-auto">
+                      <img width="200px" height="200px" src="{{asset('imagenes/productos/'.$producto->imagen)}}" alt="Thumbnail Image" class="img-raised img-thumbnail img-fluid">
+                    </div>
+                    <h4 class="label">{{ $producto->producto }}</h4>
+                    <label class="label">$ {{ $producto->precio }}</label>
+                  </a>
                 </div>
               </div>
             </div>
@@ -32,6 +45,9 @@
       </div>
     </div>
   </div>
+  @foreach($productos as $producto)
+  @include('modaladd')
+  @endforeach
   <footer class="footer footer-default">
     <div class="container">
       <nav class="float-left">
