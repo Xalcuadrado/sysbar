@@ -5,6 +5,7 @@ namespace sysbar;
 use Caffeinated\Shinobi\Traits\ShinobiTrait;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use sysbar\Notifications\UserResetPassword;
 
 class User extends Authenticatable
 {
@@ -54,4 +55,10 @@ class User extends Authenticatable
 
         return $cart;
     }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new UserResetPassword($token));
+    }
+
 }

@@ -48,6 +48,12 @@
                          </span>
                         </label>
                     </div>
+                            <div class="col-sm">
+            <a class="btn btn-link" href="{{ route('password.request') }}">
+                ¿Olvidaste tu contraseña?
+            </a>
+          </div>
+        </div>
               </div>
               <div class="footer text-center">
                 <button type="submit" class="btn btn-primary btn-link btn-wd btn-lg">Ingresar</button>

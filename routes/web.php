@@ -28,6 +28,12 @@ Route::middleware(['auth'])->group(function(){
 	Route::delete('/cart', 'CartDetailController@destroy');
 	Route::post('/order', 'CartController@update');
 
+	//perfiles
+
+	Route::get('perfil/{user}','PerfilController@show')->name('perfil.show');
+
+	Route::put('perfil/{user}','PerfilController@update')->name('perfil.update');
+
 	//asignar empresa a usuario
 
 	Route::get('asignar','AsignarEmpresaController@index')->name('asignar.index');
@@ -37,7 +43,6 @@ Route::middleware(['auth'])->group(function(){
 	Route::post('asignar/','AsignarEmpresaController@store')->name('asignar.store');
 
 	Route::delete('asignar/{eu}','AsignarEmpresaController@destroy')->name('asignar.destroy');
-
 
 	Route::get('asignar/{eu}','AsignarEmpresaController@show')->name('asignar.show');
 

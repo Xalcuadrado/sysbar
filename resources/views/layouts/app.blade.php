@@ -181,19 +181,23 @@
                             </div>
                     </li>
                     <li class="dropdown nav-item">
-                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <i class="material-icons">face</i> {{ Auth::user()->name }}
                         </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    Cerrar sesión
+                        <div class="dropdown-menu dropdown-with-icons">
+                                <a href="{{ route('perfil.show',Auth::user()->id) }}" class="dropdown-item">
+                                    <i class="material-icons">person</i> Mi perfil
+                                </a>
+                                <a href="" class="dropdown-item">
+                                   <i class="material-icons">list_alt</i> Mis pedidos
+                                </a>
+                                <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="material-icons">power_settings_new</i> Cerrar sesión
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
-                            </li>
-                        </ul>
+                        </div>
                     </li>
                 @endguest
                     <li class="nav-item">
