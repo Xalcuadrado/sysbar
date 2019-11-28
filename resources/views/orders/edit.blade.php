@@ -66,7 +66,6 @@
 	      			<option value="" selected disabled>Seleccione la opción</option>
 		      		<option value="aceptado">Aceptado</option>
 		      		<option value="cancelado">Cancelado</option>
-		      		<option value="finalizado">Finalizado</option>
 	      		</select>
 		        <button type="submit" class="btn btn-primary">Confirmar</button>
 	      </div>

@@ -29,4 +29,13 @@ class EmpresaFormRequest extends FormRequest
             'logo'   =>'mimes:jpeg,bmp,png',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'nombre.required' => 'Necesitas escribir el nombre o álias de la empresa.',
+            'nombre.max' => 'El nombre o álias de la empresa no debe tener mas de 50 caracteres.',
+            'logo.mimes' => 'Sólo se permite subir imagenes en formato JPEG, BMP ó PNG'
+        ];
+    }
 }

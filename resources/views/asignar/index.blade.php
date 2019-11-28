@@ -8,9 +8,14 @@
     <div class="container">
       <div class="section text-center">
         <h2 class="title">Listado de usuarios pertenecientes a una o más empresas</h2>
-          <a href="" data-target="#modal-store" data-toggle="modal" rel="tooltip" title="asignación nueva" class="btn btn-success btn-sm">Asignar
+          <a href="" data-target="#modal-store" data-toggle="modal" rel="tooltip" title="asignación nueva" class="btn btn-primary btn-round">Vincular un usuario a una empresa
           </a>
       <p></p>
+      @if (session('notificacion'))
+            <div class="alert alert-success">
+              {{ session('notificacion') }}
+            </div>
+          @endif
         <div class="team">
           <div class="row">
             <table class="table">
@@ -47,51 +52,9 @@
     			        @endforeach
     			    </tbody>
 			      </table>
-            {{ $empuser->links("pagination::bootstrap-4") }}
           </div>
 
             <hr style="border-top: 2px solid #c49b63; width: 50%">
-          <div class="row">
-            <div class="col-sm">
-              <table class="table">
-              <thead>
-                  <tr>
-                      <th class="text-center">#</th>
-                      <th>Usuarios</th>
-                  </tr>
-              </thead>
-              <tbody>
-                @foreach($users as $user)
-                  <tr>
-                      <td class="text-center">{{ $user->id }}</td>
-                      <td>{{ $user->name }} {{ $user->apellido }}</td>
-                  </tr>
-                  @endforeach
-              </tbody>
-            </table>
-            {{ $users->links("pagination::bootstrap-4") }}
-            </div>
-                <div class="col-sm">
-              <table class="table">
-              <thead>
-                  <tr>
-                      <th class="text-center">#</th>
-                      <th>Empresas</th>
-                  </tr>
-              </thead>
-              <tbody>
-                @foreach($empresas as $empresa)
-                  <tr>
-                      <td class="text-center">{{ $empresa->idempresa }}</td>
-                      <td>{{ $empresa->nombre }}</td>
-                  </tr>
-                  
-                  @endforeach
-              </tbody>
-            </table>
-            {{ $empresas->links("pagination::bootstrap-4") }}
-            </div>
-          </div>
         </div>
       </div>
     </div>

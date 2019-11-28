@@ -9,6 +9,11 @@
       <div class="section text-center">
         <h2 class="title">Listado de usuarios</h2>
       <p></p>
+            @if (session('notificacion'))
+            <div class="alert alert-success">
+              {{ session('notificacion') }}
+            </div>
+          @endif
       <div class="row">
           <div class="col-sm">
             @include('users.search')

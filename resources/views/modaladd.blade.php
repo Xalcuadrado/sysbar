@@ -2,7 +2,7 @@
 	<div class="modal-dialog" role="document" style="margin: auto;">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLabel">{{ $producto->producto }}</h5>        
+	        <h4 class="modal-title label" id="exampleModalLabel">{{ $producto->producto }}</h4>        
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
@@ -36,14 +36,14 @@
 		      	<hr style="border-top: 2px solid #c49b63; width: 50%">
 		      	<div class="row">
 	              <div class="col-sm">
-	              		<a class="btn btn-primary" data-toggle="collapse" href="#multiCollapse{{ $producto->idproducto }}" role="button" aria-expanded="false" aria-controls="multiCollapse{{ $producto->idproducto }}">Ingredientes</a>
+	              		<a class="btn btn-info btn-round" data-toggle="collapse" href="#multiCollapse{{ $producto->idproducto }}" role="button" aria-expanded="false" aria-controls="multiCollapse{{ $producto->idproducto }}">Detalles</a>
 	              </div>
 	            </div>
 	            @include('products.detalles')
 		      </div>
 	      	<div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
-		        <button class="btn btn-success" type="submit">
+		        <button type="button" class="btn btn-secondary btn-round" data-dismiss="modal">Volver</button>
+		        <button class="btn btn-success btn-round" type="submit">
 	                  <i class="material-icons">shopping_cart</i> Agregar al Carrito
 	            </button>
 	      	</div>

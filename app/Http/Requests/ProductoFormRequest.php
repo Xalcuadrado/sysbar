@@ -29,9 +29,23 @@ class ProductoFormRequest extends FormRequest
             'codigo'        =>'required',
             'nombre'        =>'required',
             'imagen'        =>'mimes:jpeg,bmp,png',
-            'precio'        =>'required',
-            'stock'         =>'required',
+            'precio'        =>'required|numeric',
+            'stock'         =>'required|numeric',
             'descripcion'   =>'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'idempresa.required' => 'Necesitas seleccionar la empresa.',
+            'idcategoria.required' => 'Necesitas seleccionar la categoría a la que pertenece.',
+            'codigo.required' => 'Necesitas escribir el código o asignale uno.',
+            'nombre.required' => 'Necesitas escribir el nombre del producto.',
+            'precio.required' => 'Necesitas escribir el precio del producto.',
+            'stock.required' => 'Necesitas escribir un stock inicial.',
+            'descripcion.required' => 'Necesitas escribir una breve descripción del producto.',
+            'imagen.mimes' => 'Sólo se permite subir imagenes en formato JPEG, BMP ó PNG'
         ];
     }
 }

@@ -17,7 +17,8 @@ class Compra extends Model
     	't_comprobante',
     	'n_comprobante',
     	'impuesto',
-    	'estado'
+    	'estado',
+
     ];
 
     protected $guarded =[];

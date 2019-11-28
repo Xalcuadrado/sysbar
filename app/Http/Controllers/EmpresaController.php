@@ -45,7 +45,9 @@ class EmpresaController extends Controller
 
         Empresa::create($empresa);
 
-        return Redirect::to('empresas');
+        $notificacion = "El nuevo registro de empresa se realizó con éxito!";
+
+        return Redirect::to('empresas')->with(compact('notificacion'));
     }
 
     public function show($id)
@@ -78,7 +80,8 @@ class EmpresaController extends Controller
             $empresa->logo=$file->getClientOriginalName();
             }
         $empresa->update();
-        return Redirect::to('empresas');
+        $notificacion = "Los datos de la empresa se actualizaron correctamente!";
+        return Redirect::to('empresas')->with(compact('notificacion'));
     }
 
         /**

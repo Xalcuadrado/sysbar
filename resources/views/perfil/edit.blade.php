@@ -1,4 +1,5 @@
 <div class="modal fade bd-example-modal-lg" id="modal-edit-{{Auth::user()->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	
     {!!Form::model($user,['method'=>'PUT','route'=>['perfil.update',$user->id], 'files'=>'true'])!!}
 	{{Form::token()}}
 	<div class="modal-dialog modal-lg">

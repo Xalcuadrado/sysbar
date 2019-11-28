@@ -12,6 +12,11 @@
 			<a href="{{ url('/compras/create') }}" class="btn btn-primary btn-round">Nueva compra</a>
 			@endcan
       <p></p>
+      @if (session('notificacion'))
+            <div class="alert alert-success">
+              {{ session('notificacion') }}
+            </div>
+          @endif
       <div class="row">
           <div class="col-sm">
             @include('compras.search')

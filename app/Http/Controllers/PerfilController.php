@@ -19,7 +19,7 @@ class PerfilController extends Controller
         return view('perfil.show', compact('user','roles','user_rol'));
     }
 
-    public function update(Request $request, $id)
+    public function update(UserFormRequest $request, $id)
     {
         $user=User::findOrFail($id);
         $user->name=$request->get('name');

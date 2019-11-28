@@ -8,6 +8,19 @@
     <div class="container">
       <div class="section">
         <h2 class="title text-center">Registrar nuevo ingrediente</h2>
+        <div class="row">
+            <div class="col-sm">
+              @if (count($errors)>0)
+                <div class="alert alert-danger">
+                  <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{$error}}</li>
+                    @endforeach
+                  </ul>
+                </div>
+              @endif
+            </div>
+          </div>
             {!!Form::open(['url'=>'ingredientes','method'=>'POST','autocomplete'=>'off'])!!}
             {{Form::token()}}
             <div class="row">

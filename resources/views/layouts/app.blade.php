@@ -18,9 +18,8 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{{asset('demo/demo.css')}}" rel="stylesheet" />
   <link href="{{asset('css/style.css')}}" rel="stylesheet" />
-
     <script>
-      function validar()
+      function validarselect()
       {
         document.getElementById("ver").disabled="disabled";
         for(var i=0;i<document.getElementsByTagName("select").length;i++)
@@ -31,6 +30,7 @@
         document.getElementById("ver").disabled=false;
       }
     </script>
+    <script src="{{asset('js/validar.js')}}" type="text/javascript"></script>
 
 </head>
 
@@ -60,7 +60,7 @@
                                 <i class="material-icons">description</i> Funcionalidades
                               </a>
                               <a href="#" class="dropdown-item">
-                                <i class="material-icons">local_atm</i> Precios
+                                <i class="material-icons">local_atm</i> Precios de suscripción
                               </a>
                               <a href="#" class="dropdown-item">
                                 <i class="material-icons">group</i> Quienes somos
@@ -99,50 +99,62 @@
                             </div>
                     </li>
                     <li class="dropdown nav-item">
+                      @can('orders.index')
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                             <i class="material-icons">shopping_basket</i> Pedidos
                         </a>
+                      
                             <div class="dropdown-menu dropdown-with-icons">
                               <a href="{{ route('orders.index') }}" class="dropdown-item">
                                 <i class="material-icons">watch_later</i> Pendientes
                               </a>
-                              <a href="" class="dropdown-item">
+                              @can('allorders.index')
+                              <a href="{{ route('cancelorders.index') }}" class="dropdown-item">
                                 <i class="material-icons">remove_shopping_cart</i> Cancelados
                               </a>
-                              <a href="" class="dropdown-item">
-                                <i class="material-icons">shopping_cart</i> Realizados
+                              @endcan
+                              @can('allorders.index')
+                              <a href="{{ route('aceptorders.index') }}" class="dropdown-item">
+                                <i class="material-icons">shopping_cart</i> Aceptados
                               </a>
-                              <a href="" class="dropdown-item">
+                              @endcan
+                              @can('compra.index')
+                              <a href="{{ route('allorders.index') }}" class="dropdown-item">
                                 <i class="material-icons">list_alt</i> Todos los pedidos
                               </a>
+                              @endcan
                             </div>
+                      @endcan
                     </li>
                     <li class="dropdown nav-item">
+                      @can('compras.index')
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                             <i class="material-icons">assessment</i> Reportes
                         </a>
                             <div class="dropdown-menu dropdown-with-icons">
-                              <a href="" class="dropdown-item">
+                              <a href="{{ url('reportes/reporteventas') }}" class="dropdown-item">
                                 <i class="material-icons">attach_money</i> Ventas
                               </a>
-                              <a href="" class="dropdown-item">
-                                <i class="material-icons">fastfood</i> Productos
-                              </a>
                             </div>
+                            @endcan
                     </li>
                     <li class="dropdown nav-item">
+                      @can('compras.index')
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                             <i class="material-icons">apps</i> Gestiones
                         </a>
+                        @endcan
                             <div class="dropdown-menu dropdown-with-icons">
                               @can('empresas.index')
                               <a href="{{ route('empresas.index') }}" class="dropdown-item">
                                 <i class="material-icons">business</i> Empresas
                               </a>
                               @endcan
+                              @can('asignar.index')
                               <a href="{{ route('asignar.index') }}" class="dropdown-item">
                                 <i class="material-icons">supervisor_account</i> Usuarios de empresas
                               </a>
+                              @endcan
                               @can('users.index')
                               <a href="{{ route('users.index') }}" class="dropdown-item">
                                 <i class="material-icons">face</i> Usuarios
@@ -188,7 +200,7 @@
                                 <a href="{{ route('perfil.show',Auth::user()->id) }}" class="dropdown-item">
                                     <i class="material-icons">person</i> Mi perfil
                                 </a>
-                                <a href="" class="dropdown-item">
+                                <a href="{{ route('mispedidos.index') }}" class="dropdown-item">
                                    <i class="material-icons">list_alt</i> Mis pedidos
                                 </a>
                                 <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -224,11 +236,14 @@
             </div>
         </div>
     </nav>
+
 <div class="wrapper">
     @yield('content')
+
 </div>
  <!--   Core JS Files   -->
 <script src="{{asset('js/core/jquery.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/mi-scripts.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/bootstrap-input-spinner.js')}}" type="text/javascript"></script>
 
 <script src="{{asset('js/core/popper.min.js')}}" type="text/javascript"></script>

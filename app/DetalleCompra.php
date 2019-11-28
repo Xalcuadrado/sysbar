@@ -15,7 +15,7 @@ class DetalleCompra extends Model
     	'idcompra',
     	'idproducto',
     	'cantidad',
-    	'precio_compra'
+    	'precio_compra',
     ];
 
     protected $guarded =[];

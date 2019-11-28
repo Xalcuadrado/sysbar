@@ -28,4 +28,12 @@ class IngredienteFormRequest extends FormRequest
             'nombre' =>'required|max:100'
         ];
     }
+    public function messages()
+    {
+        return [
+            'idempresa.required' => 'Necesitas seleccionar la empresa.',
+            'nombre.required' => 'Necesitas escribir el nombre del ingrediente.',
+            'nombre.max' => 'El nombre del ingrediente no debe tener más de 100 caracteres'
+        ];
+    }
 }

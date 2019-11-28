@@ -17,7 +17,6 @@ class CreateComprasTable extends Migration
             $table->increments('idcompra');
             $table->string('t_comprobante');
             $table->integer('n_comprobante');
-            $table->integer('precio');
             $table->decimal('impuesto', 8, 2);
             $table->string('estado');
             $table->integer('idempresa')->unsigned()->index();

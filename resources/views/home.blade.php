@@ -18,22 +18,15 @@
           <div class="row">
             @foreach($productos as $producto)
             <div class="col-md-4">
-              <div class="team-player img-raised img-thumbnail" style="margin-bottom: 20px;">
+              <div class="team-player img-raised" style="margin-bottom: 20px;">
                 <div class="card card-plain">
-                  <!-- <a href="{{ route('products.show', $producto->idproducto )}}">
-                    <div class="col-md-6 ml-auto mr-auto">
-                      <img width="200px" height="200px" src="{{asset('imagenes/productos/'.$producto->imagen)}}" alt="Thumbnail Image" class="img-raised img-thumbnail img-fluid">
-                    </div>
-                    <h4 class="label">{{ $producto->producto }}</h4>
-                    <label class="label">
-                      <strong>$ {{ $producto->precio }} -</strong>{{ $producto->stock }} disponibles</label>
-                  </a> -->
                   <a href="" data-target="#modal-addcart-{{$producto->idproducto}}" data-toggle="modal" rel="tooltip" title="Ver producto">
                     <div class="col-md-6 ml-auto mr-auto">
                       <img width="200px" height="200px" src="{{asset('imagenes/productos/'.$producto->imagen)}}" alt="Thumbnail Image" class="img-raised img-thumbnail img-fluid">
                     </div>
                     <h4 class="label">{{ $producto->producto }}</h4>
-                    <label class="label">$ {{ $producto->precio }}</label>
+                    <label class="label" style="font-size: 2em; font-family:'fantasy' ; color: red
+                     ">$ {{ $producto->precio }}</label>
                   </a>
                 </div>
               </div>

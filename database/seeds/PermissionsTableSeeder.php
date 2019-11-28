@@ -88,33 +88,6 @@ class PermissionsTableSeeder extends Seeder
         	'description'	=>'Eliminar cualquier categoría del sistema',
         ]);
 
-                //Permisos de mesas
-        // Permission::create([
-        // 	'name'			=>'Navegar mesas',
-        // 	'slug'			=>'mesas.index',
-        // 	'description'	=>'Lista y navega todos los mesas del sistema',
-        // ]);
-        // Permission::create([
-        // 	'name'			=>'Ver detalle de mesa',
-        // 	'slug'			=>'mesas.show',
-        // 	'description'	=>'Ver en detalle cada mesa del sistema',
-        // ]);
-        // Permission::create([
-        // 	'name'			=>'Creación de mesas',
-        // 	'slug'			=>'mesas.create',
-        // 	'description'	=>'Crear mesa del sistema',
-        // ]);
-        // Permission::create([
-        // 	'name'			=>'Edición de mesas',
-        // 	'slug'			=>'mesas.edit',
-        // 	'description'	=>'Editar cualquier dato del mesa del sistema',
-        // ]);
-        // Permission::create([
-        // 	'name'			=>'Eliminar mesa',
-        // 	'slug'			=>'mesas.destroy',
-        // 	'description'	=>'Eliminar cualquier mesa del sistema',
-        // ]);
-
         //Permisos de empresas
         Permission::create([
         	'name'			=>'Navegar empresas',
@@ -251,5 +224,23 @@ class PermissionsTableSeeder extends Seeder
         	'description'	=>'Eliminar cualquier proveedor del sistema',
         ]);
 
+        //permisos de proveedores
+        Permission::create([
+            'name'          =>'Navegar usuarios con permisos',
+            'slug'          =>'asignar.index',
+            'description'   =>'Gestiones de todos los usuarios vinculados a empresas',
+        ]);
+
+        //permisos ver pedidos
+        Permission::create([
+            'name'          =>'Navegar pedidos pendientes a evaluar',
+            'slug'          =>'orders.index',
+            'description'   =>'Lista de pedidos realizados y listos para ser gestionados',
+        ]);
+        Permission::create([
+            'name'          =>'Navegar todos los pedidos',
+            'slug'          =>'allorders.index',
+            'description'   =>'Mostrar todos los pedidos',
+        ]);
     }
 }

@@ -16,8 +16,8 @@ class AsignarEmpresaController extends Controller
 
     public function index(Request $request)
     {
-    	$empresas = DB::table('empresa')->paginate(9);
-    	$users = DB::table('users')->paginate(9);
+    	$empresas = DB::table('empresa')->get();
+    	$users = DB::table('users')->get();
 
     	if($request)
         {
@@ -39,6 +39,7 @@ class AsignarEmpresaController extends Controller
     	$empresauser = $request->all();
         EmpresaUser::create($empresauser);
 
-        return back();
+        $notificacion = "El usuario y la empresa se vincularon con éxito!";
+        return back()->with(compact('notificacion'));
     }
 }

@@ -23,7 +23,6 @@
     			            <th>Estado</th>
     			            <th>Usuario</th>
                       <th>Documentación</th>
-    			            <th class="text-right">Acciones</th>
     			        </tr>
     			    </thead>
     			    <tbody>
@@ -44,11 +43,6 @@
                       </td>
     			            <td>{{ $order->usuario }} {{ $order->apellido }}</td>
                       <td>{{ $order->t_documento }} : {{ $order->n_documento }}</td>
-    			            <td class="td-actions text-right">
-                          <a href="" data-target="#modal-delete-{{$order->idcart}}" data-toggle="modal" rel="tooltip" title="Remover del sistema" class="btn btn-danger btn-sm">
-                            <i class="fa fa-times"></i>
-                          </a>
-    			            </td>
     			        </tr>
                   
     			        @endforeach
@@ -60,6 +54,9 @@
       </div>
     </div>
   </div>
+  @foreach($allorders as $order)
+    @include('allorders.edit')
+    @endforeach
   <footer class="footer footer-default">
     <div class="container">
       <nav class="float-left">

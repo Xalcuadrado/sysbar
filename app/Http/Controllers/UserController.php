@@ -62,7 +62,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserFormRequest $request, $id)
     {   
 
         $user=User::findOrFail($id);
@@ -81,7 +81,9 @@ class UserController extends Controller
 
         $user->roles()->sync($request->get('roles'));
 
-        return Redirect::to('users');
+        $notificacion = "Los datos del usuario se actualizaron correctamente!";
+
+        return Redirect::to('users')->with(compact('notificacion'));
     }
 
     /**
@@ -94,6 +96,9 @@ class UserController extends Controller
     {
         $users = User::find($id);
         $users->delete();
-        return Redirect::to('users');
+
+        $notificacion = "El usuario fue eliminado con éxito!";
+
+        return Redirect::to('users')->with(compact('notificacion'));
     }
 }

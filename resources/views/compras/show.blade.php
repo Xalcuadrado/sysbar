@@ -73,7 +73,7 @@
                   </div>
                 </div>
 
-          <p>El compra {{ $compra->nombre }} fue creado en {{ $compra->created_at }} hrs. y la ultima actualización de datos fue {{ $compra->updated_at }} hrs. </p>
+          <p>La compra con código {{ $compra->idcompra }} fue creado en {{ $compra->created_at }} hrs. y la ultima actualización de datos fue {{ $compra->updated_at }} hrs. </p>
         </div>
         <div class="row">
           <div class="col-sm">

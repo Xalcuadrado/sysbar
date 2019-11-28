@@ -12,6 +12,11 @@
 			<a href="{{ url('/proveedores/create') }}" class="btn btn-primary btn-round">Nuevo proveedor</a>
 			@endcan
       <p></p>
+                  @if (session('notificacion'))
+            <div class="alert alert-success">
+              {{ session('notificacion') }}
+            </div>
+          @endif
       <div class="row">
           <div class="col-sm">
             @include('proveedores.search')

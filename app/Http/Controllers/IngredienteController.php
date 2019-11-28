@@ -63,7 +63,8 @@ class IngredienteController extends Controller
 
         $ingrediente = $request->all();
         Ingrediente::create($ingrediente);
-        return Redirect::to('ingredientes');
+        $notificacion = "El nuevo registro de ingrediente se realizó con éxito!";
+        return Redirect::to('ingredientes')->with(compact('notificacion'));
     }
 
     /**
@@ -105,7 +106,8 @@ class IngredienteController extends Controller
         $ingrediente->nombre=$request->get('nombre');
         $ingrediente->idempresa=$request->get('idempresa');
         $ingrediente->update();
-        return Redirect::to('ingredientes');
+        $notificacion = "Los datos del ingrediente se actualizaron con éxito!";
+        return Redirect::to('ingredientes')->with(compact('notificacion'));
     }
 
     /**
@@ -117,6 +119,7 @@ class IngredienteController extends Controller
     public function destroy(Ingrediente $ingrediente)
     {
         $ingrediente->delete();
-        return back()->with('info','Eliminado Correctamente');
+        $notificacion = "El ingrediente fue eliminado con éxito!";
+        return back()->with(compact('notificacion'));
     }
 }

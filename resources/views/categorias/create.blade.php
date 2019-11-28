@@ -8,8 +8,21 @@
     <div class="container">
       <div class="section">
         <h2 class="title text-center">Registrar nueva categoria</h2>
-            {!!Form::open(['url'=>'categorias','method'=>'POST','autocomplete'=>'off' , 'files'=>'true'])!!}
-            {{Form::token()}}
+          <div class="row">
+            <div class="col-sm">
+              @if (count($errors)>0)
+                <div class="alert alert-danger">
+                  <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{$error}}</li>
+                    @endforeach
+                  </ul>
+                </div>
+              @endif
+            </div>
+          </div>
+          {!!Form::open(['url'=>'categorias','method'=>'POST','autocomplete'=>'off' , 'files'=>'true'])!!}
+          {{Form::token()}}
             <div class="row">
               <div class="col-sm">
                   <div class="form-group">

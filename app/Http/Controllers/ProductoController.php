@@ -86,8 +86,9 @@ class ProductoController extends Controller
                 $detalle->save();
                 $cont=$cont+1;
             }
+        $notificacion = "El nuevo registro de producto se realizó con éxito!";
 
-        return Redirect::to('productos');
+        return Redirect::to('productos')->with(compact('notificacion'));
     }
 
     public function show($id)
@@ -154,8 +155,9 @@ class ProductoController extends Controller
             }
             $producto->estado='Activo';
             $producto->update();
+        $notificacion = "Los datos del producto se actualizaron correctamente!";
 
-        return Redirect::to('productos');
+        return Redirect::to('productos')->with(compact('notificacion'));
     }
 
     public function destroy($id)
@@ -169,6 +171,7 @@ class ProductoController extends Controller
         $producto->estado='Activo';   
         }
         $producto->update();
-        return Redirect::to('productos');
+        $notificacion = "Se cambió el estado del producto con éxito!";
+        return Redirect::to('productos')->with(compact('notificacion'));
     }
 }

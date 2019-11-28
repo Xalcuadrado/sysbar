@@ -12,6 +12,11 @@
 			   <a href="{{ url('/empresas/create') }}" class="btn btn-primary btn-round">Nueva empresa</a>
 			  @endcan
         <p></p>
+                  @if (session('notificacion'))
+            <div class="alert alert-success">
+              {{ session('notificacion') }}
+            </div>
+          @endif
         <div class="row">
           <div class="col-sm">
             @include('empresas.search')
@@ -39,7 +44,7 @@
     			    	@foreach($empresas as $empresa)
     			            <td class="text-center">{{ $empresa->idempresa }}</td>
     			            <td>{{ $empresa->nombre }}</td>
-    			            <td><img style="width:  70px; height: 70px;" src="{{asset('imagenes/productos/'.$empresa->logo)}}" alt="{{ $empresa->nombre}}" class="img-raised rounded-circle img-fluid"></td>
+    			            <td><img style="width:  70px; height: 70px;" src="{{asset('imagenes/empresas/'.$empresa->logo)}}" alt="{{ $empresa->nombre}}" class="img-raised img-thumbnail img-fluid"></td>
     			            <td class="td-actions text-right">
                           @can('empresas.show')
     			                <a href="{{ route('empresas.show', $empresa->idempresa )}}" rel="tooltip" title="Ver en detalle" class="btn btn-info btn-sm">

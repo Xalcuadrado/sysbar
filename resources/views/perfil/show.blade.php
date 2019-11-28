@@ -10,8 +10,9 @@
           <div class="col-md-6 ml-auto mr-auto">
             <div class="profile">
               <div class="avatar">
-                <img width="150px" height="150px" src="{{asset('imagenes/users/'.$user->foto)}}" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+                <img width="150px" height="150px" src="{{asset('imagenes/users/'.$user->foto)}}" alt="Circle Image" class="img-raised img-thumbnail img-fluid">
               </div>
+              <br>
               <div class="name">
                 @foreach($roles as $r)
                   @foreach($user_rol as $ur)

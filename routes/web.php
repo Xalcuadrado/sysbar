@@ -22,6 +22,8 @@ Route::get('/carrito', 'CarritoController@index')->name('carrito');
 Route::middleware(['auth'])->group(function(){
 	
 
+	Route::get('/reportes/reporteventas', 'ReporteController@reporteventa');
+
 	Route::get('products/{producto}', 'ProductController@show')->name('products.show');
 
 	Route::post('/cart', 'CartDetailController@store');
@@ -34,30 +36,48 @@ Route::middleware(['auth'])->group(function(){
 
 	Route::put('perfil/{user}','PerfilController@update')->name('perfil.update');
 
+	Route::get('mispedidos','PedidosController@index')->name('mispedidos.index');
+
 	//asignar empresa a usuario
 
-	Route::get('asignar','AsignarEmpresaController@index')->name('asignar.index');
+	Route::get('asignar','AsignarEmpresaController@index')->name('asignar.index')
+	->middleware('permission:asignar.index');
 
-	Route::put('asignar/{eu}','AsignarEmpresaController@update')->name('asignar.update');
+	Route::put('asignar/{eu}','AsignarEmpresaController@update')->name('asignar.update')
+	->middleware('permission:asignar.index');
 
-	Route::post('asignar/','AsignarEmpresaController@store')->name('asignar.store');
+	Route::post('asignar/','AsignarEmpresaController@store')->name('asignar.store')
+	->middleware('permission:asignar.index');
 
-	Route::delete('asignar/{eu}','AsignarEmpresaController@destroy')->name('asignar.destroy');
+	Route::delete('asignar/{eu}','AsignarEmpresaController@destroy')->name('asignar.destroy')
+	->middleware('permission:asignar.index');
 
-	Route::get('asignar/{eu}','AsignarEmpresaController@show')->name('asignar.show');
+	Route::get('asignar/{eu}','AsignarEmpresaController@show')->name('asignar.show')
+	->middleware('permission:asignar.index');
 
 
 	//orders
 
-	Route::get('orders','OrderController@index')->name('orders.index');
+	Route::get('orders','OrderController@index')->name('orders.index')
+	->middleware('permission:orders.index');
 
-	Route::get('allorders','OrderController@allindex')->name('allorders.index');
+	Route::get('allorders','OrderController@allindex')->name('allorders.index')
+	->middleware('permission:allorders.index');
 
-	Route::put('orders/{order}','OrderController@update')->name('orders.update');
+	Route::get('aceptorders','OrderController@aceptorders')->name('aceptorders.index')
+	->middleware('permission:allorders.index');
 
-	Route::get('orders/{order}','OrderController@show')->name('orders.show');
+	Route::get('cancelorders','OrderController@cancelindex')->name('cancelorders.index')
+	->middleware('permission:allorders.index');
+
+	Route::put('orders/{order}','OrderController@update')->name('orders.update')
+	->middleware('permission:orders.index');
+
+	Route::get('orders/{order}','OrderController@show')->name('orders.show')
+	->middleware('permission:orders.index');
 	
-	Route::delete('orders/{order}','OrderController@destroy')->name('orders.destroy');
+	Route::delete('orders/{order}','OrderController@destroy')->name('orders.destroy')
+	->middleware('permission:orders.index');
 
 
 	//Roles

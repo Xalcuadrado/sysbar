@@ -53,7 +53,8 @@ class ProveedorController extends Controller
         $proveedor->telefono=$request->get('telefono');
         $proveedor->email=$request->get('email');
         $proveedor->save();
-        return Redirect::to('proveedores');
+        $notificacion = "El nuevo registro de proveedor se realizó con éxito!";
+        return Redirect::to('proveedores')->with(compact('notificacion'));
     }
     public function show($id)
     {
@@ -78,12 +79,15 @@ class ProveedorController extends Controller
         $proveedor->telefono=$request->get('telefono');
         $proveedor->email=$request->get('email');
         $proveedor->update();
-        return Redirect::to('proveedores');
+        $notificacion = "Los datos del proveedor se actualizaron correctamente!";
+        return Redirect::to('proveedores')->with(compact('notificacion'));
     }
     public function destroy($id)
     {
         $proveedor=Proveedor::findOrFail($id);
         $proveedor->delete();
-        return Redirect::to('proveedores');
+        
+        $notificacion = "El proveedor fue eliminado con éxito!";
+        return Redirect::to('proveedores')->with(compact('notificacion'));
     }
 }

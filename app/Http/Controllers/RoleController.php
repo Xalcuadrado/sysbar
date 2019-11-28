@@ -52,7 +52,9 @@ class RoleController extends Controller
 
         $role->permissions()->sync($request->get('permissions'));
 
-        return redirect()->route('roles.index');
+        $notificacion = "El nuevo registro de rol se realizó con éxito!";
+
+        return redirect()->route('roles.index')->with(compact('notificacion'));
     }
 
     public function show(Role $role)
@@ -88,7 +90,9 @@ class RoleController extends Controller
 
         $role->permissions()->sync($request->get('permissions'));
 
-        return Redirect::to('roles');
+        $notificacion = "Los datos del rol se actualizaron correctamente!";
+
+        return Redirect::to('roles')->with(compact('notificacion'));
     }
 
     /**
@@ -101,6 +105,9 @@ class RoleController extends Controller
     {
         $role = Role::find($id);
         $role->delete();
-        return Redirect::to('roles');
+
+        $notificacion = "El rol fue eliminado con éxito!";
+
+        return Redirect::to('roles')->with(compact('notificacion'));
     }
 }

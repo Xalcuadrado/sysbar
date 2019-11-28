@@ -90,13 +90,15 @@ class CompraController extends Controller
             }
 
             DB::commit();
+
+        $notificacion = "El nuevo registro de compra se realizó con éxito!";
         }
         catch(\Exception $e)
         {
             DB::rollback();
         }
 
-        return Redirect::to('compras');
+        return Redirect::to('compras')->with(compact('notificacion'));
     }
 
     public function show($id)
@@ -124,6 +126,8 @@ class CompraController extends Controller
         $compra=Compra::findOrFail($id);
         $compra->estado='Anulado';
         $compra->update();
-        return Redirect::to('compras');
+
+        $notificacion = "El registro de compra fue anulada con éxito!";
+        return Redirect::to('compras')->with(compact('notificacion'));
     }
 }

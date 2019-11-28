@@ -36,8 +36,9 @@ class CategoriaController extends Controller
     	//dd($request->all()); registrar la nueva categoria en la db
     	$categoria = $request->all();
         Categoria::create($categoria);
+        $notificacion = "El nuevo registro de la categoría se realizó con éxito!";
 
-        return Redirect::to('categorias');
+        return Redirect::to('categorias')->with(compact('notificacion'));
     }
 
     public function show($id)
@@ -65,7 +66,8 @@ class CategoriaController extends Controller
         $categoria->nombre=$request->get('nombre');
         $categoria->descripcion=$request->get('descripcion');
         $categoria->update();
-        return Redirect::to('categorias');
+        $notificacion = "Los datos de la categoría se actualizaron correctamente!";
+        return Redirect::to('categorias')->with(compact('notificacion'));
     }
 
         /**
@@ -78,6 +80,7 @@ class CategoriaController extends Controller
     {
         $categoria = Categoria::find($id);
         $categoria->delete();
-        return Redirect::to('categorias');
+        $notificacion = "El categoría fue eliminado con éxito!";
+        return Redirect::to('categorias')->with(compact('notificacion'));
     }
 }

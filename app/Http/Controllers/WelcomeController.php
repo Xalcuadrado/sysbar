@@ -4,6 +4,7 @@ namespace sysbar\Http\Controllers;
 
 use Illuminate\Http\Request;
 use sysbar\Empresa;
+use DB;
 
 class WelcomeController extends Controller
 {
@@ -20,6 +21,9 @@ class WelcomeController extends Controller
     {
     	//vista de empresas para la vista welcome.blade.php
     	$empresas = Empresa::all();
-    	return view('welcome')->with(compact('empresas'));
+
+        $roles = DB::table('role_user')->get();
+
+    	return view('welcome')->with(compact('empresas','roles'));
     }
 }

@@ -78,7 +78,7 @@
               <br>
               <div class="row">
                 <div class="col-sm">
-                  <select name="empresa_id" class="custom-select" onchange="validar()">
+                  <select name="empresa_id" class="custom-select" onchange="validarselect()">
                     <option value="0" disabled selected>Selecciona el local</option>
                     @foreach($empresas as $empresa)
                     <option value="{{ $empresa->idempresa }}">

@@ -2,6 +2,7 @@
 @section('title','Bienvenido a SBAR')
 @section('body-class','landing-page sidebar-collapse')
 @section('content')
+
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{ asset('img/bg_4.jpg') }}')">
     <div class="container">
       <div class="row">
@@ -19,7 +20,7 @@
   <div class="main main-raised">
     <div class="container">
       <div class="section text-center">
-        <h2 class="title">Empresas aliadas</h2>
+        <h2 class="title">Locales</h2>
         <h5 class="description">Bares y restobares que decidieron poner su confianza en nosotros, pensando en sus clientes y colaboradores con el afan de optimizar el tiempo de todos y garantizar el mejor servicio .</h5>
         <div class="team">
           <div class="row">
@@ -27,24 +28,15 @@
             <div class="col-md-4">
               <div class="team-player">
                 <div class="card card-plain">
-                    <div class="col-md-6 ml-auto mr-auto">
-                      <img width="100px" height="100px" src="{{asset('imagenes/empresas/'.$empresa->logo)}}" alt="Thumbnail Image" class="img-raised img-thumbnail img-fluid">
-                    </div>
-                    <h4 class="card-title">{{ $empresa->nombre }}
-                    </h4>
                     <div class="row">
                       <div class="col-sm">
-                        <a href="{{url('/home', $empresa->idempresa) }}" class="btn btn-info btn-raised btn-sm">
-                      <i class="fa fa-check"></i> Entrar
-                    </a>
+                        <a href="{{url('/home', $empresa->idempresa) }}">
+                          <div class="col-md">
+                            <img style="width: 400px; height: 200px;" src="{{asset('imagenes/empresas/'.$empresa->logo)}}" alt="Thumbnail Image" class="img-raised img-thumbnail img-fluid">
+                          </div>
+                        </a>
                       </div>
                     </div>
-                    
-                  <div class="card-footer justify-content-center">
-                    <a href="#" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
-                    <a href="#" class="btn btn-link btn-just-icon"><i class="fa fa-instagram"></i></a>
-                    <a href="#" class="btn btn-link btn-just-icon"><i class="fa fa-facebook-square"></i></a>
-                  </div>
                 </div>
               </div>
             </div>
